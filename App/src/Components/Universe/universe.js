@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { getUniverse } from '../../Services/UniverseService';
+import Cell from '../Cell/cell';
 
 const Universe = (props) => {
     const [universe, setUniverse] = React.useState([]);
@@ -9,7 +10,9 @@ const Universe = (props) => {
             universe.map((row, i) => (
                 <div key={i}>
                     {row.map((col, j) => (
-                        <span key={j}>{col}</span>
+                        <React.Fragment key={j}>
+                            <Cell cellStatus={col} />
+                        </React.Fragment>
                     ))}
                 </div>
             ))
