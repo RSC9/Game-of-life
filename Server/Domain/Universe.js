@@ -1,4 +1,4 @@
-import Cell from './Cell';
+const Cell = require('./Cell');
 
 class Universe {
     constructor(width = 50, height = 50, grid = []) {
@@ -51,4 +51,4 @@ class Universe {
     }
 }
 
-export default Universe;
+module.exports = Universe;

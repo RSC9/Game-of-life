@@ -1,4 +1,4 @@
-import Universe from "./Universe";
+const Universe = require('./Universe');
 
 class Game {
     constructor(width, height, grid = []) {
@@ -188,4 +188,4 @@ class Game {
     }
 }
 
-export default Game;
+module.exports = Game;
