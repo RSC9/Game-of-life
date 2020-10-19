@@ -3,7 +3,7 @@ const Universe = require('./Universe');
 class Game {
     constructor(width, height, grid = []) {
         this.universe = new Universe(width, height, grid);
-        this.state = [];
+        this.cellStatuses = [];
     }
 
     getLogicUniverse() {
@@ -45,7 +45,7 @@ class Game {
 
         // Any dead cell with exactly three live neighbours becomes a live cell.
         if (neighbours === 3) {
-            this.state.unshift([yCoord, xCoord, true]);
+            this.cellStatuses.unshift([yCoord, xCoord, true]);
         }
     }
 
@@ -55,13 +55,13 @@ class Game {
 
             // Any living cell with two or three live neighbours lives on to the next generation.
             if (neighbours === 2 || neighbours === 3) {
-                this.state.unshift([yCoord, xCoord, true]);
+                this.cellStatuses.unshift([yCoord, xCoord, true]);
             } else {
                 /*
                 Any living cell with more than three live neighbours; overcrowding.
                 Any living cell with fewer than two live neighbours dies; underpopulation.
                 */
-                this.state.unshift([yCoord, xCoord, false]);
+                this.cellStatuses.unshift([yCoord, xCoord, false]);
             }
         }
     }
@@ -84,11 +84,11 @@ class Game {
     }
 
     getNextGeneration() {
-        for (let index = 0; index < this.state.length; index++) {
-            this.universe.updateCell(...this.state[index]);
+        for (let index = 0; index < this.cellStatuses.length; index++) {
+            this.universe.updateCell(...this.cellStatuses[index]);
         }
 
-        this.state = [];
+        this.cellStatuses = [];
     }
     
     goUp(yCoord, xCoord, height) {

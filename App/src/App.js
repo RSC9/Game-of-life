@@ -5,10 +5,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        Game of Life
+      <React.Fragment>
+        <h1>Game of Life</h1>
         <Universe />
-      </div>
+      </React.Fragment>
     );
   }
 }
