@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import { getUniverse } from './Services/UniverseService';
+import Universe from './Components/Universe/universe';
 
 class App extends Component {
-
-  async getUniverse() {
-    const universe = await getUniverse();
-    console.log('+universe+', universe);
-  }
-
-  componentDidMount() {
-      this.getUniverse();
-  }
 
   render() {
     return (
       <div>
         Game of Life
+        <Universe />
       </div>
     );
   }
