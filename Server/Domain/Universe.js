@@ -31,6 +31,10 @@ class Universe {
         return this.grid;        
     }
 
+    setGrid(grid) {
+        this.grid = grid;
+    }
+
     initGrid() {
         for (let i = 0; i < this.height; i++) {
             const row = [];
